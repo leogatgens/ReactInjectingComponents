@@ -54,7 +54,11 @@ const Image = () => {
 
         axios.post(serviceUrl,newImage ,config)
         .then(response =>  {alert("Procesado con exito") 
-                                selectImage();} );
+                                selectImage();} )
+                                
+                                .catch(error => {
+                                  alert("Error: " + error.message);
+                                });;
         }
 
 
@@ -64,10 +68,19 @@ const Image = () => {
   // borra una imagen
   // -------------------------------------------------------------
   const deleteImage = async () => {
-    const serviceUrl = `http://localhost:8080/image/`;
-    axios.delete(serviceUrl+ImageIdDelete)
-    .then(response =>  {alert("Borrado con exito") 
-                          selectImage()} );
+    if (ImageIdDelete === 0 ){
+      alert("Debe digitar el id");
+
+  }else{
+      const serviceUrl = `http://localhost:8080/image/`;
+      axios.delete(serviceUrl+ImageIdDelete)
+      .then(response =>  {alert("Borrado con exito") 
+                            selectImage()} )
+                            
+                            .catch(error => {
+                              alert("No se pudo eliminar la imagen: " + error.message);
+                            });
+  }
   }
 
   // -------------------------------------------------------------
@@ -94,6 +107,11 @@ const Image = () => {
         }        
     }
 
+
+  // -------------------------------------------------------------
+  // parte grafica
+  // -------------------------------------------------------------
+
     return(
         <div id="full-page-div">
 
@@ -108,12 +126,12 @@ const Image = () => {
               ID:   
               <input  onChange={setIdToImage} type="text" />
             </label>
-            <br></br>
+            <br></br><br></br>
             <label >
               Descripcion:   
               <input onChange={setdescriptionToImage} type="text" />
             </label>
-            <br></br>
+            <br></br><br></br>
             <label>
               URL:   
               <input onChange={setUrlToImage} type="text"/>
