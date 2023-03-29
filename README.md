@@ -1,3 +1,11 @@
-# ImageColection
-una pagina para guardar imagenes con el autor y poder buscarlas
-readmi
+# ImageColection 
+
+## Aplicacion en local para manejar imagenes con sus creadores (como una galeia)
+
+## corre en http://localhost:3000/
+
+
+se inicia el backend
+
+
+y luego el frontend con npm start
