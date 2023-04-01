@@ -90,3 +90,11 @@
         alert("Error: " + error.message);
       });
   };*/
+
+
+
+  <div class="row">
+                        <img src={item.url} class="column"/> 
+                            <map name={item.ImageUrl}>
+                                <area shape='rect' coords='100, 100, 100, 100' href={item.ImageUrl} title={item.description}/></map>
+                    </div>

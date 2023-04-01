@@ -66,14 +66,15 @@ img {
   max-width: 100%;
   padding: 4px;
 }
+/*
 img:hover{
   cursor: pointer;
   border: 1px solid white;
-}
+}*/
 
 
 .row {
-  display:flexbox;
+  display: flexbox;
   flex-wrap: wrap;
   padding: 0 4px;
   border-bottom: 70px solid transparent;

@@ -82,7 +82,10 @@ const Probando = () => {
 
         if(response.data.length > 0){   
           let imagelist = response.data.map((item) => {
-            return <img src={item.url} class="column"/>
+            return <><img src={item.url} class="column"/>
+                            <map name={item.ImageUrl}>
+                                <area shape='rect' coords='100, 100, 100, 100' href={item.ImageUrl} title={item.description}/></map> 
+                                </>
           });
           setImage(imagelist);
     
@@ -119,10 +122,11 @@ const Probando = () => {
             <div class="row">
                     {Image}
             </div>
+            
 
             <div>
                 <form onSubmit={handleSubmit}>
-                    <input type='file' name='' id='' onChange={(e) => setFile(e.target.files[0])} />
+                    <input type='file' accept='.jpg,.jpeg,.png' onChange={(e) => setFile(e.target.files[0])} />
                     <button>Upload</button>
                 </form>
 
