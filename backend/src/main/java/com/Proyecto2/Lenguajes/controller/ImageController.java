@@ -25,7 +25,7 @@ public class ImageController {
     // seleccionar por id
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/image/{id}")
-    public Image getById(@PathVariable int id) {
+    public Image getById(@PathVariable String id) {
         Optional<Image> image = imageRepository.findById(id);
 
         if(image.isEmpty()){
@@ -38,7 +38,7 @@ public class ImageController {
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "/image")
     public void createPersonaje(@RequestBody Image newImage){
-        int id = newImage.getId();
+        String id = newImage.getId();
         Optional<Image> image = imageRepository.findById(id);
 
         if(image.isEmpty()){
@@ -52,7 +52,7 @@ public class ImageController {
     // borra por Id
     @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(path = "/image/{id}")
-    public void deletePersonaje(@PathVariable int id){
+    public void deletePersonaje(@PathVariable String id){
         Optional<Image> image = imageRepository.findById(id);
         if(image.isEmpty()){
             throw  new RuntimeException("Character not found: " + id);

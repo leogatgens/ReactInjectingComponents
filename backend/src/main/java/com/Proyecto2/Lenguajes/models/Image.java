@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Image {
     @Id
-    private int id;
+    private String id;
     private String description;
     private String url;
 
@@ -16,17 +16,17 @@ public class Image {
     public Image() {
     }
 
-    public Image(int id, String description, String url) {
+    public Image(String id, String description, String url) {
         this.id = id;
         this.description = description;
         this.url = url;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
