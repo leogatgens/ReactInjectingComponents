@@ -94,12 +94,12 @@ const Probando = () => {
 
         if(response.data.length > 0){   
           let imagelist = response.data.map((item) => {
-            return <img src={item.url}/>
+            return <img src={item.url} id={item.id} onClick={() => selectImage(item.id)}/>
           });
           setImage(imagelist);
     
         }else{
-          setImage(<li>no hay datos</li>);
+          setImage(<h2>no hay datos</h2>);
         }        
     }
 
@@ -124,6 +124,9 @@ const Probando = () => {
   
             <h1> Imagenes </h1>
 
+            <div>
+                    {Unique}
+            </div>
 
             <div class="img-gallery">
                     {Image}
