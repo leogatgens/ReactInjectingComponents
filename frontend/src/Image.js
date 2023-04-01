@@ -1,12 +1,17 @@
-import {useEffect,useState} from 'react';
+import {useState} from 'react';
 import axios from 'axios';
 
 
 import ImageUploader from 'react-image-upload'
 import 'react-image-upload/dist/index.css'
+//import multer from 'multer';
 
+
+//Date.now()
 const Image = () => {
-  
+
+  //const multer = require('multer')
+
   const [Image, setImage] = useState([]);
   const [ImageID, setImageID] = useState(0);
   const [ImageDescription, setImageDescription] = useState("");
@@ -67,37 +72,6 @@ const Image = () => {
 
 
   }
-  /*
-  const createImage = async (imageFile) => {
-    if (!imageFile) {
-      alert("Debe seleccionar una imagen.");
-      return;
-    }
-  
-    const newImage = {
-      description: imageFile.name,
-      url: URL.createObjectURL(imageFile),
-      file: imageFile
-    };
-  
-    alert(newImage);
-
-    const serviceUrl = "http://localhost:8080/image";
-    let config = {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
-  
-    axios
-      .post(serviceUrl, newImage, config)
-      .then((response) => {
-        alert(newImage);
-      })
-      .catch((error) => {
-        alert("Error: " + error.message);
-      });
-  };*/
 
   // -------------------------------------------------------------
   // borra una imagen
@@ -143,26 +117,10 @@ const Image = () => {
     }
 
     function getImageFile(image) {
-      const formData = new FormData();
-      formData.append('./images', image);
-    
-      fetch('/upload-image', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.blob();
-      })
-      .then(blob => {
-        console.log('Image uploaded successfully:', blob);
-      })
-      .catch(error => {
-        console.error('Error uploading image:', error);
-      });
+      console.log(image.file.name);
+
     }
+  
   
     function deleteImageFile (img) {
       console.log("")
@@ -173,6 +131,7 @@ const Image = () => {
   // -------------------------------------------------------------
 
     return(
+
         <div id="full-page-div">
 
           <h1> Imagenes </h1>
@@ -229,7 +188,7 @@ const Image = () => {
             maxFileSize={5242880}
             onFileAdded={(image) => getImageFile(image)}
             onFileRemoved={(image) => deleteImageFile(image)}
-          />
+            />
 
         </div>
     )
