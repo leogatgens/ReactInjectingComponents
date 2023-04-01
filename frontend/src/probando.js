@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 const Probando = () => {
 
   const[file,setFile] = useState(null);
+  const[Unique,setUnique] = useState([]);
 
   const [Image, setImage] = useState([]);
   const [ImageID, setImageID] = useState("");
@@ -19,11 +20,11 @@ const Probando = () => {
   // -------------------------------------------------------------
   // crea una Imagen
   // -------------------------------------------------------------
-  const createImage= async () => {
+  function createImage(id, name, url) {
         var newImage = {
-        id: ImageID,
-        description: ImageDescription,
-        url: ImageUrl
+        id: id,
+        description: name,
+        url: url
     }
     
     if (newImage.id === "" || newImage.description === "" || newImage.url === "" ){
@@ -68,6 +69,17 @@ const Probando = () => {
   }
   }
 
+  const fulImgBox = document.getElementById("fulImgBox"),
+  fulImg = document.getElementById("fulImg");
+
+  function openFulImg(reference){
+      fulImgBox.style.display = "flex";
+      fulImg.src = reference
+  }
+  function closeImg(){
+      fulImgBox.style.display = "none";
+  }
+
   // -------------------------------------------------------------
   // selecciona todas las imagenes
   // -------------------------------------------------------------
@@ -82,10 +94,7 @@ const Probando = () => {
 
         if(response.data.length > 0){   
           let imagelist = response.data.map((item) => {
-            return <><img src={item.url} class="column"/>
-                            <map name={item.ImageUrl}>
-                                <area shape='rect' coords='100, 100, 100, 100' href={item.ImageUrl} title={item.description}/></map> 
-                                </>
+            return <img src={item.url}/>
           });
           setImage(imagelist);
     
@@ -102,10 +111,7 @@ const Probando = () => {
             const result = await uploadFile(file);
             const uniqueID = uuidv4();
 
-            setImageID(uniqueID);
-            setImageDescription(file.name);
-            setImageUrl(result);
-            await createImage();
+            createImage(uniqueID, file.name, result);
 
         } catch (error){
             console.error(error);
@@ -118,8 +124,8 @@ const Probando = () => {
   
             <h1> Imagenes </h1>
 
-            
-            <div class="row">
+
+            <div class="img-gallery">
                     {Image}
             </div>
             
