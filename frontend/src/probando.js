@@ -10,17 +10,11 @@ const Probando = () => {
   const[Unique,setUnique] = useState([]);
 
   const [Image, setImage] = useState([]);
-  const [ImageID, setImageID] = useState("");
 
 
   // -------------------------------------------------------------
   // selecciona una imagen con el click y carga los datos
   // -------------------------------------------------------------
-  function seleccionarImagen(id){
-    setImageID(id);
-    selectImageByID();
-  }
-
   const selectImageByID = async (id) => {
     const serviceUrl = `http://localhost:8080/image/` + id;
     let config = {
@@ -29,15 +23,18 @@ const Probando = () => {
       }
     };
     let response =  await axios.get(serviceUrl,config);
-    let image = <img src={response.data.url}/>;
+    let image = <div className='ful-img'><img src={response.data.url}/></div>;
     setImage(image);
+    setUnique(<div> <h2>Descripcion: {response.data.description}</h2> 
+                    <h2>URL: {response.data.url}</h2>
+              </div>)
   
   }
 
   // -------------------------------------------------------------
   // selecciona todas las imagenes de la base de datos y las pinta en el browser
   // -------------------------------------------------------------
-  const selectImage = async () => {
+  const selectImageToBD = async () => {
       const serviceUrl = 'http://localhost:8080/image';
       let config = {
         headers: {
@@ -48,7 +45,7 @@ const Probando = () => {
 
       if(response.data.length > 0){   
         let imagelist = response.data.map((item) => {
-          return <img src={item.url} id={item.id} onClick={() => selectImageByID(item.id)}/>
+          return <img className='' src={item.url} id={item.id} onClick={() => selectImageByID(item.id)}/>
         });
         setImage(imagelist);
   
@@ -58,9 +55,9 @@ const Probando = () => {
   }
 
   // -------------------------------------------------------------
-  // Manda los datos a la API del back lo que hace que se guarde en la base de datos
+  // Guarda la imagen en la base de datos
   // -------------------------------------------------------------
-  function createImage(id, name, url) {
+  function createImageBD(id, name, url) {
     var newImage = {
     id: id,
     description: name,
@@ -80,7 +77,7 @@ const Probando = () => {
 
       axios.post(serviceUrl,newImage ,config)
       .then(response =>  {alert("Procesado con exito") 
-                              selectImage();} )
+                              selectImageToBD();} )
                               
                               .catch(error => {
                                 alert("Error: " + error.message);
@@ -93,17 +90,24 @@ const Probando = () => {
   // ademas llama la funcion createImage que la guarda en la base de datos
   // -------------------------------------------------------------
 
-  const handleSubmit = async (e) => {
+  const CreateImage = async (e) => {
       e.preventDefault();
       try{
           const result = await uploadFile(file);
           const uniqueID = uuidv4();
-          createImage(uniqueID, file.name, result);
+          createImageBD(uniqueID, file.name, result);
 
       } catch (error){
           console.error(error);
       }
   }
+
+  const ChargeAllImages = async (e) => {
+    setUnique(null);
+    selectImageToBD();
+}
+
+
 
     return(
 
@@ -121,14 +125,14 @@ const Probando = () => {
           
 
           <div>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={CreateImage}>
                   <input type='file' accept='.jpg,.jpeg,.png' onChange={(e) => setFile(e.target.files[0])} />
-                  <button>Upload</button>
+                  <button>Subir Imagenes</button>
               </form>
 
               <br></br><br></br><br></br>
 
-              <button onClick={selectImage}>Cargar Imagenes</button>
+              <button onClick={ChargeAllImages}>Cargar Todas Las Imagenes</button>
           </div>
         </div>
     )
