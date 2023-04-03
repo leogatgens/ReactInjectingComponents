@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "react-notifications/lib/notifications.css";
 import { NotificationManager } from "react-notifications";
 
-const UploaImage = () => {
+const UploadImage = () => {
   const [file, setFile] = useState(null);
 
   // para cambiar la direccion del browser a la inicial
@@ -86,4 +86,4 @@ const UploaImage = () => {
   );
 };
 
-export default UploaImage;
+export default UploadImage;

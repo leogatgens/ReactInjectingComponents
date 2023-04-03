@@ -1,6 +1,7 @@
 import "./App.css";
-import RoutesManager from "./navigation/RoutesManager";
+import DefaultTopLevel from "./DependenciesManager";
 
-const App = () =><RoutesManager/>
+
+const App = () =><DefaultTopLevel/>
 
 export default App;
