@@ -76,7 +76,7 @@ input {
 
 .img-gallery {
   width: 95%;
-  margin: 5vh auto 15vh;
+  margin: 5vh auto 2vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50vh, 1fr));
   gap: 5px;

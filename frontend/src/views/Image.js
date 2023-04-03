@@ -41,9 +41,8 @@ const Image = () => {
     setImage(image);
     setInformation(
       <div>
-        {" "}
-        <h2>Descripcion: {response.data.description}</h2>
-        <h2>URL: {response.data.url}</h2>
+        <p>Descripcion: {response.data.description}</p>
+        <p>URL: {response.data.url}</p>
       </div>
     );
   };
@@ -66,9 +65,6 @@ const Image = () => {
       <div>{Information}</div>
 
       <div className="img-gallery">{Image}</div>
-
-      <br></br>
-
       <button className="buttonDelete" onClick={deletePersonaje}>
         Borrar Imagen
       </button>

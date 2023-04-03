@@ -7,7 +7,7 @@ import {
   NotificationManager,
 } from "react-notifications";
 
-const Galery = () => {
+const Gallery = () => {
   const [Image, setImage] = useState([]);
 
   // para cambiar la direccion del browser
@@ -62,4 +62,4 @@ const Galery = () => {
   );
 };
 
-export default Galery;
+export default Gallery;
