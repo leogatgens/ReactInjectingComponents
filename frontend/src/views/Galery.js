@@ -34,11 +34,10 @@ const Galery = () => {
       let imagelist = response.data.map((item) => {
         return (
           <img
-          key={item.id}
+            key={item.id}
             src={item.url}
             id={item.id}
             onClick={() => navigate("/image" + "/" + item.id)}
-            
           />
         );
       });
