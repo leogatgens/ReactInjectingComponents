@@ -5,14 +5,14 @@ body {
   text-align: center;
 }
 
-.menu{
+.menu {
   border: 10px solid transparent;
   background-color: #1e1c1c;
   color: white;
   text-align: left;
   display: flex;
 }
-.menu a{
+.menu a {
   color: orange;
   margin-right: 1em;
   margin-left: 1em;
@@ -27,13 +27,11 @@ body {
   color: white;
 }
 
-
 #full-page-div {
-  border-top: 10px solid transparent;
-  border-bottom: 58vh solid transparent;
+  border-top: 4px solid transparent;
+  border-bottom: 10vh solid transparent;
   height: 100%;
   width: 100%;
-  position: relative;
   /* background: linear-gradient(to right, #ea52f8, #0066ff); */
   background-color: #4f4f4f;
   color: white;
@@ -43,7 +41,7 @@ button {
   background-color: transparent;
   color: white;
   padding: 10px 20px;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   border-radius: 2px;
   cursor: pointer;
   position: relative;
@@ -55,10 +53,6 @@ button {
 button:hover {
   transition: 1s ease-in-out;
   background: #53a5f8;
-}
-
-button:hover svg {
-  stroke-dashoffset: -480;
 }
 button span {
   color: white;
@@ -74,46 +68,61 @@ input {
   border-radius: 50px;
 }
 
-
-.img-gallery{
-  width: 90%;
-  margin: 50px auto 50px;
+.img-gallery {
+  width: 95%;
+  margin: 5vh auto 15vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(50vh, 1fr));
+  gap: 5px;
 }
-.img-gallery img{
+.img-gallery img {
   max-width: 100%;
   margin: auto;
-  max-height: 400px;
+  max-height: 50vh;
   cursor: pointer;
   transition: 1s;
 }
-.img-gallery img:hover{
+.img-gallery img:hover {
   transform: scale(1.1);
 }
 
-.ful-img{
-  max-width: 100%;
+.ful-img {
   margin: auto;
 }
-.ful-img img{
-  max-height: 700px;
-  max-width: 1100px;
+.ful-img img {
+  max-height: 70vh;
 }
-.ful-img img:hover{
+.ful-img img:hover {
   transform: none;
   cursor: auto;
 }
 
-@media screen and (max-width:400px){
-  h1{
-      text-decoration: underline;
+@media screen and (max-width: 400px) {
+  h1 {
+    text-decoration: underline;
   }
-  h1::before{
-      display: none;
+  h1::before {
+    display: none;
   }
-  h1 span{
-      padding: 0;
+  h1 span {
+    padding: 0;
   }
+}
+
+.buttonDelete {
+  background-color: rgb(245, 11, 11);
+  color: black;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+.buttonDelete:hover {
+  transition: 1s ease-in-out;
+  background: red;
 }
