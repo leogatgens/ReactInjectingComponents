@@ -5,13 +5,37 @@ body {
   text-align: center;
 }
 
+.menu{
+  border: 10px solid transparent;
+  background-color: #1e1c1c;
+  color: white;
+  text-align: left;
+  display: flex;
+}
+.menu a{
+  color: orange;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.uploadCSS {
+  border-top: 100px solid transparent;
+  height: 80%;
+  width: 100%;
+  position: absolute;
+  background-color: #4f4f4f;
+  color: white;
+}
+
+
 #full-page-div {
   border-top: 10px solid transparent;
-  border-bottom: 200px solid transparent;
+  border-bottom: 58vh solid transparent;
   height: 100%;
   width: 100%;
-  position:relative;
-  background: linear-gradient(to right, #ea52f8, #0066ff);
+  position: relative;
+  /* background: linear-gradient(to right, #ea52f8, #0066ff); */
+  background-color: #4f4f4f;
   color: white;
 }
 
@@ -36,31 +60,20 @@ button:hover {
 button:hover svg {
   stroke-dashoffset: -480;
 }
-
 button span {
   color: white;
   font-size: 18px;
   font-weight: 100;
 }
 
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
+input {
+  background-color: transparent;
+  color: white;
+  border: 1px solid red;
+  padding: 10px 10px;
+  border-radius: 50px;
 }
 
-input {
-  background-color: #347eee;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
 
 .img-gallery{
   width: 90%;
@@ -104,66 +117,3 @@ input {
       padding: 0;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-img {
-  max-width: 100%;
-  padding: 4px;
-}
-
-img:hover{
-  cursor: pointer;
-  transform: scale(1.2);
-}
-
-.row{
-  display: inline-block;
-  position: relative;
-}
-
-.row.active {
-  position: fixed;
-  width: 100vh;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
-}
-
-.row img{
-  z-index: 1;
-}
-
-.row.active::after{
-  content: '';
-  position: fixed;
-  width: 100vh;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(0,0,0,0.56);
-}
-
-.column {
-  max-width: 700px;
-  max-height: 500px;
-  padding: 4px;
-  
-}
-.column img{
-  vertical-align: middle;
-}*/
