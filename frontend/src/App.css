@@ -5,6 +5,11 @@ body {
   text-align: center;
 }
 
+h2{
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
 .menu {
   border: 10px solid transparent;
   background-color: #1e1c1c;
@@ -13,7 +18,7 @@ body {
   display: flex;
 }
 .menu a {
-  color: orange;
+  color: rgb(244, 11, 11);
   margin-right: 1em;
   margin-left: 1em;
 }
@@ -23,19 +28,20 @@ body {
   height: 80%;
   width: 100%;
   position: absolute;
-  background-color: #4f4f4f;
+  background: linear-gradient(to left, #ec0303, #278af4); 
   color: white;
 }
 
 #full-page-div {
   border-top: 4px solid transparent;
-  border-bottom: 10vh solid transparent;
+  border-bottom: 20vh solid transparent;
   height: 100%;
   width: 100%;
-  /* background: linear-gradient(to right, #ea52f8, #0066ff); */
-  background-color: #4f4f4f;
+  background: linear-gradient(to left, #2e2d2e, #0b0b0b); 
+  /* background-color: #4f4f4f; */
   color: white;
 }
+
 
 button {
   background-color: transparent;
@@ -51,7 +57,7 @@ button {
 }
 
 button:hover {
-  transition: 1s ease-in-out;
+  transition: 0.5s ease-in-out;
   background: #53a5f8;
 }
 button span {
